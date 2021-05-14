@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/notif_message_back"
+    android:id="@+id/notif_message_root"
+    android:layout_height="wrap_content"
+    tools:context=".notif_message">
+
+    <TextView
+        android:layout_marginTop="3dp"
+        android:id="@+id/notif_message_lable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ошибка авторизации"
+        android:textColor="#FFF"
+        android:layout_marginLeft="10dp"
+        android:textSize="16dp"/>
+
+    <TextView
+        android:id="@+id/notif_message_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Неверный логин или пароль."
+        android:textColor="#fff"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="20dp"
+        android:layout_toLeftOf="@id/notif_message_icon"
+        android:layout_below="@id/notif_message_lable"/>
+
+    <ImageView
+        android:id="@+id/notif_message_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_below="@id/notif_message_lable"
+        android:layout_alignParentRight="true"
+        app:srcCompat="@drawable/error_img"/>
+
+</RelativeLayout>

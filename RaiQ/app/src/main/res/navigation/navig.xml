@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navig"
+    app:startDestination="@id/fragment_camera">
+
+    <fragment
+        android:id="@+id/fragment_history"
+        android:name="com.example.raiq.history"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_fragment_history_to_fragment_camera"
+            app:destination="@id/fragment_camera"/>
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_camera"
+        android:name="com.example.raiq.camera"
+        android:label="fragment_camera"
+        tools:layout="@layout/fragment_camera" >
+        <action
+            android:id="@+id/action_fragment_camera_to_fragment_map"
+            app:destination="@id/fragment_map" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_settings"
+        android:name="com.example.raiq.lk"
+        android:label="fragment_lk"
+        tools:layout="@layout/fragment_lk" />
+    <fragment
+        android:id="@+id/fragment_map"
+        android:name="com.example.raiq.map"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map">
+        <action
+            android:id="@+id/action_fragment_map_to_fragment_settings"
+            app:destination="@id/fragment_settings" />
+    </fragment>
+</navigation>

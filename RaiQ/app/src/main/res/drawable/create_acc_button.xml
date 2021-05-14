@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="294dp"
+    android:height="41dp"
+    android:viewportWidth="294"
+    android:viewportHeight="41">
+  <path
+      android:pathData="M18,2L276,2A18,18 0,0 1,294 20L294,23A18,18 0,0 1,276 41L18,41A18,18 0,0 1,0 23L0,20A18,18 0,0 1,18 2z"
+      android:fillColor="@color/registr_button_shadow"/>
+  <path
+      android:pathData="M18,0L276,0A18,18 0,0 1,294 18L294,21A18,18 0,0 1,276 39L18,39A18,18 0,0 1,0 21L0,18A18,18 0,0 1,18 0z">
+    <aapt:attr name="android:fillColor">
+      <gradient 
+          android:startY="9.86667"
+          android:startX="147.06"
+          android:endY="39"
+          android:endX="146.987"
+          android:type="linear">
+        <item android:offset="0" android:color="@color/registr_button_start"/>
+        <item android:offset="1" android:color="@color/registr_button_end"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+</vector>

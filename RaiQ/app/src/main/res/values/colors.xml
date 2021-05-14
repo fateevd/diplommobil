@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="header_color">#07C2FE</color>
+
+
+    <!--Активити регистрация-->
+
+    <!--Фон-->
+    <color name="regist_background">#F8F8F8</color>
+
+    <!--Надпись-->
+    <color name="regist_background_label">#000</color>
+
+    <!--Fill надпись-->
+    <color name="regist_fill_lable">#0482FF</color>
+
+    <!--Иконка-->
+    <color name="regist_icon">#000</color>
+
+    <!--Эдиты-->
+    <color name="regist_edittext_color_text">#012C57</color>
+    <color name="regist_edittext_color_hint">#012C57</color>
+
+    <!--Кнопка-->
+    <color name="registr_button_start">#FF0080FF</color>
+    <color name="registr_button_end">#FF0482FF</color>
+    <color name="registr_button_shadow">#00638D</color>
+    <color name="registr_button_text">#FFF</color>
+
+    <!--Назад к авторизации-->
+    <color name="registr_goto_reg_text">#000</color>
+    <color name="registr_goto_reg_line">#000</color>
+
+
+    <!--Активити авторизации-->
+
+    <!--Фон-->
+    <color name="auth_background">#F8F8F8</color>
+
+    <!--Текст-->
+    <color name="auth_text_color">#012C57</color>
+
+    <!--Забыл пароль-->
+    <color name="auth_forget_pass">#7A7A7A</color>
+
+    <!--Войти-->
+    <color name="auth_voity_textcolor">#FFF</color>
+
+    <!--К регистрации-->
+    <color name="auth_goto_reg">#000</color>
+
+
+    <!--Фрагмент истории-->
+
+    <!--Фон-->
+    <color name="history_background">#F5F5F5</color>
+
+    <!--Надпись-->
+    <color name="history_text">#012C57</color>
+
+    <!--Фон с историями-->
+    <color name="history_background_back">#EBEBEB</color>
+
+    <!--Элемент истории-->
+    <color name="history_item_textcolor_name">#000000</color>
+    <color name="history_item_textcolor_address">#004461</color>
+    <color name="history_item_color_start">#C4D4DF</color>
+    <color name="history_item_color_end">#C4D4DF</color>
+
+
+    <!--Активити настройки/личный кабинет-->
+
+    <!--Эдит пароль в настройках-->
+    <color name="settings_edit_color">#000</color>
+
+    <!--Цвет заднего фона настроек-->
+    <color name="settings_backcolor">#EBEBEB</color>
+
+    <color name="settings_button_exit_color">#FFF</color>
+
+    <!--Шапка-->
+    <color name="user_info_back_color">#7B8EFF</color>
+    <color name="settings_userinfo_back">#E0DFDF</color>
+    <color name="settings_userinfo_text_color">#000</color>
+
+    <!--Цвет иконок в EditText-->
+    <color name="settings_icons_color">#808080</color>
+
+    <!--Смена пароля-->
+    <color name="setting_change_pass_textcolor">#000</color>
+
+    <!--Push уведомления-->
+    <color name="push_back_text_color">#000</color>
+    <color name="push_back">#fff</color>
+    <color name="push_back_stroke">#E0E0E0</color>
+    <color name="push_back_thumb_true">#fff</color>
+    <color name="push_back_thumb_false">#fff</color>
+    <color name="push_back_track_true">#2BB00A</color>
+    <color name="push_back_track_true_stroke">#2BB00A</color>
+    <color name="push_back_track_false">#8D8D8D</color>
+    <color name="push_back_track_false_stroke">#8D8D8D</color>
+
+    <!--Дневная/ночная тема фон-->
+    <color name="day_theme">#000</color>
+    <color name="day_theme_stroke">#4D4D4D</color>
+    <color name="day_theme_text_color">#fff</color>
+    <color name="theme_back_thumb_true">#fff</color>
+    <color name="theme_back_thumb_false">#fff</color>
+    <color name="theme_back_track_true">#2BB00A</color>
+    <color name="theme_back_track_true_stroke">#2BB00A</color>
+    <color name="theme_back_track_false">#7D7D7D</color>
+    <color name="theme_back_track_false_stroke">#7D7D7D</color>
+
+
+    <!--Активити пямятник-->
+
+    <!--Задний фон-->
+    <color name="monument_backcolor">#EBEBEB</color>
+
+    <!--Название памятника-->
+    <color name="monument_name">#012C57</color>
+
+    <!--Название памятника-->
+    <color name="monument_address">#012C57</color>
+
+    <!--Задний фон текста-->
+    <color name="monument_text_backcolor">#C4D4DF</color>
+
+    <!--Цвет текста-->
+    <color name="monument_text_color">#000</color>
+
+    <!--Цвет подвала-->
+    <color name="monument_bottom_backcolor">#FDFDFD</color>
+
+    <!--Кнопка назад-->
+    <color name="monument_buttonback_textcolor">#FFF</color>
+    <color name="monument_buttonback_startcolor">#0080FF</color>
+    <color name="monument_buttonback_endcolor">#0482FF</color>
+    <color name="monument_buttonback_shadow">#00638D</color>
+
+
+    <!--Активити восстановление пароля-->
+
+    <!--Фон-->
+    <color name="forgetpass_back">#FDFDFC</color>
+
+    <!--Заголовок-->
+    <color name="forgepass_header">#004852</color>
+
+    <!--Активити сообщения-->
+
+    <!--Фон-->
+    <color name="message_activity_bg">#01D062</color>
+
+    <!--Текст-->
+    <color name="message_activity_text">#fff</color>
+
+    <!--Кнопка вернутся к авторизации-->
+    <color name="forgetpass_buttonBack_textColor">#000</color>
+    <color name="forgetpass_buttonBack_shadow">#5062EA</color>
+    <color name="forgetpass_buttonBack_color_start">#FF91A4E6</color>
+    <color name="forgetpass_buttonBack_color_end">#FF8793FF</color>
+
+
+    <!--Фрагмент камера-->
+
+    <!--Фон-->
+    <color name="camera_background">#fff</color>
+
+
+    <!--Главный фрагмент-->
+
+    <!--Значки-->
+    <color name="color_active">#012C57</color>
+    <color name="color_disable">#807F7F</color>
+    <color name="color_active_qr">#FFF</color>
+    <color name="color_passive_qr">#807F7F</color>
+    <color name="color_qr_fig">#fff</color>
+
+    <!--Navigation view-->
+    <color name="background_nav">#FDFDFD</color>
+    <color name="line_under_nav">#D9D9D9</color>
+
+
+    <!--Загрузочное окно-->
+
+    <color name="loading_text_color">#000000</color>
+    <color name="loading_text_back">#FDFDFC</color>
+
+</resources>

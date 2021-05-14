@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1054883595943",
+    "firebase_url": "https://washeroff-76c4b.firebaseio.com",
+    "project_id": "washeroff-76c4b",
+    "storage_bucket": "washeroff-76c4b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1054883595943:android:9d152f481431a7fd37bd82",
+        "android_client_info": {
+          "package_name": "com.example.raiq"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1054883595943-q03v30qc6d0rrchh7isb057caa1ulgt9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqVntQgGd30zwAbSG-peeXeZseDwpqHWU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1054883595943-q03v30qc6d0rrchh7isb057caa1ulgt9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

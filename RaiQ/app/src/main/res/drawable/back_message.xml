@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="274dp"
+    android:height="128dp"
+    android:viewportWidth="274"
+    android:viewportHeight="128">
+    <path
+        android:pathData="M19,0L255,0A19,19 0,0 1,274 19L274,109A19,19 0,0 1,255 128L19,128A19,19 0,0 1,0 109L0,19A19,19 0,0 1,19 0z"
+        android:fillColor="@color/message_activity_bg"/>
+</vector>

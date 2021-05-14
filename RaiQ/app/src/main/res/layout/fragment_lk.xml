@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/settings_backcolor"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".lk">
+
+    <RelativeLayout
+        android:id="@+id/settings_user_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:elevation="10dp"
+        android:background="@drawable/user_info_back">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/settings_user_image"
+            android:layout_width="50dp"
+            android:src="@drawable/user_logo"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="23dp"
+            android:layout_height="50dp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@id/settings_user_image"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:padding="10dp"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/settings_FIO"
+                android:layout_width="match_parent"
+                android:text="ФИО"
+                android:lines="1"
+                android:textColor="@color/settings_userinfo_text_color"
+                android:textSize="18sp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/settings_mail"
+                android:layout_marginTop="3dp"
+                android:text="Почта"
+                android:textSize="18sp"
+                android:textColor="@color/settings_userinfo_text_color"
+                android:layout_below="@id/settings_FIO"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/settings_password_contain"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:elevation="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/settings_user_info">
+
+            <EditText
+                android:id="@+id/settings_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_round_corner"
+                android:inputType="textPassword"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:padding="20dp"
+                android:password="true"
+                android:textColor="@color/setting_change_pass_textcolor"
+                android:textSize="20sp"
+                tools:ignore="Deprecated" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:background="@color/settings_backcolor"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:layout_marginTop="-4dp"
+                android:paddingRight="10dp"
+                android:textSize="18sp"
+                android:text="Смена пароля"
+                android:textColor="@color/setting_change_pass_textcolor"/>
+
+            <ImageButton
+                android:id="@+id/settings_password_change_okey"
+                android:layout_width="wrap_content"
+                android:background="@android:color/transparent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/settings_password_change_see"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/pass_change"
+                android:text="Button" />
+
+            <ImageButton
+                android:id="@+id/settings_password_change_see"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:layout_marginRight="35dp"
+                android:src="@drawable/see_pass"
+                android:layout_alignParentRight="true"
+                android:text="Button" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/settings_push_notif"
+        android:layout_below="@id/settings_password_contain"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/push_back"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/push_back_text_color"
+            android:textSize="20sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginVertical="10dp"
+            android:layout_centerVertical="true"
+            android:text="PUSH уведомления"/>
+
+        <Switch
+            android:id="@+id/settings_notif"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:thumb="@drawable/switch_thumb_push"
+            android:track="@drawable/switch_track_push"
+            android:layout_marginRight="20dp"
+            android:switchMinWidth="0dp"
+            android:layout_height="wrap_content"
+            android:checked="false"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/settings_theme_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/day_theme"
+        android:layout_below="@id/settings_push_notif">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginVertical="10dp"
+            android:layout_marginLeft="15dp"
+            android:text="Темная тема"
+            android:textColor="@color/day_theme_text_color"
+            android:textSize="20sp" />
+
+        <Switch
+            android:id="@+id/settings_theme"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:thumb="@drawable/switch_thumb_theme"
+            android:track="@drawable/switch_track_theme"
+            android:layout_marginRight="20dp"
+            android:switchMinWidth="0dp"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/settings_exit_acc"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Выйти из аккаунта"
+        android:textAllCaps="false"
+        android:layout_margin="20dp"
+        android:textColor="@color/settings_button_exit_color"
+        android:background="@drawable/button_exit_acc"
+        android:layout_alignParentBottom="true"
+        android:textSize="20sp" />
+
+</RelativeLayout>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".regisration"
+    android:background="@color/regist_background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/regist_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="95dp"
+                tools:ignore="MissingConstraints">
+
+                <ImageView
+                    android:id="@+id/regist_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_reg"
+                    tools:ignore="MissingConstraints" />
+                <TextView
+                    android:id="@+id/regist_reg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Регистрация"
+                    android:textSize="30sp"
+                    android:textColor="@color/regist_background_label"
+                    android:layout_toRightOf="@id/regist_logo"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="3dp"
+                    tools:ignore="MissingConstraints" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/regist_polya"
+                android:layout_marginTop="85dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/regist_layout"
+                tools:ignore="InvalidId">
+
+                <EditText
+                    android:id="@+id/regist_fam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Фамилия"
+                    android:textSize="23dp"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:backgroundTint="@color/regist_edittext_color_hint"
+                    android:layout_marginHorizontal="33dp"
+                    android:textColor="@color/regist_edittext_color_text"
+                    android:textColorHint="@color/regist_edittext_color_hint"
+                    android:textColorHighlight="@color/regist_edittext_color_hint"/>
+
+                <EditText
+                    android:id="@+id/regist_im"
+                    android:layout_below="@id/regist_fam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Имя"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textSize="23dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/regist_edittext_color_hint"
+                    android:layout_marginHorizontal="33dp"
+                    android:textColor="@color/regist_edittext_color_text"
+                    android:textColorHint="@color/regist_edittext_color_hint"
+                    android:textColorHighlight="@color/regist_edittext_color_hint"/>
+
+                <EditText
+                    android:id="@+id/regist_otch"
+                    android:layout_below="@id/regist_im"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Отчество"
+                    android:textSize="23dp"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:backgroundTint="@color/regist_edittext_color_hint"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="33dp"
+                    android:textColor="@color/regist_edittext_color_text"
+                    android:textColorHint="@color/regist_edittext_color_hint"
+                    android:textColorHighlight="@color/regist_edittext_color_hint"/>
+
+                <EditText
+                    android:id="@+id/regist_poch"
+                    android:layout_below="@id/regist_otch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Почта"
+                    android:textSize="23dp"
+                    android:layout_marginTop="10dp"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:backgroundTint="@color/regist_edittext_color_hint"
+                    android:layout_marginHorizontal="33dp"
+                    android:textColor="@color/regist_edittext_color_text"
+                    android:textColorHint="@color/regist_edittext_color_hint"
+                    android:textColorHighlight="@color/regist_edittext_color_hint"/>
+
+                <EditText
+                    android:id="@+id/regist_parol"
+                    android:layout_below="@id/regist_poch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Пароль"
+                    android:textSize="23dp"
+                    android:layout_marginTop="10dp"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:backgroundTint="@color/regist_edittext_color_hint"
+                    android:layout_marginHorizontal="33dp"
+                    android:password="true"
+                    android:textColor="@color/regist_edittext_color_text"
+                    android:textColorHint="@color/regist_edittext_color_hint"
+                    android:textColorHighlight="@color/regist_edittext_color_hint"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/regist_polya"
+                android:layout_marginTop="85dp">
+
+                <Button
+                    android:onClick="createAcc"
+                    android:id="@+id/regist_sozdat_akk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/registr_button_text"
+                    android:textAllCaps="false"
+                    android:layout_marginHorizontal="33dp"
+                    android:background="@drawable/create_acc_button"
+                    android:textSize="16dp"
+                    android:text="Создать аккаунт"/>
+
+                <TextView
+                    android:id="@+id/regist_auth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="У меня уже есть аккаунт"
+                    android:textColor="@color/registr_goto_reg_text"
+                    android:textSize="18sp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/regist_sozdat_akk"
+                    android:layout_marginTop="25dp"/>
+
+                <View
+                    android:layout_width="206dp"
+                    android:layout_height="3px"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/registr_goto_reg_line"
+                    android:layout_below="@id/regist_auth"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

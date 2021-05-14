@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/history_background"
+    tools:context=".history">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/history_background">
+
+        <TextView
+            android:id="@+id/fragment_history_hop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="22dp"
+            android:text="История операций"
+            android:textColor="@color/history_text"
+            android:textFontWeight="400"
+            android:textSize="22dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <ListView
+            android:id="@+id/history_spis"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/fragment_history_hop"
+            android:layout_marginHorizontal="13dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="23px"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/history_item" />
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="192dp"
+    android:height="35dp"
+    android:viewportWidth="192"
+    android:viewportHeight="35">
+  <path
+      android:pathData="M16.5,1.692L175.5,1.692A16.5,16.5 0,0 1,192 18.192L192,18.192A16.5,16.5 0,0 1,175.5 34.692L16.5,34.692A16.5,16.5 0,0 1,0 18.192L0,18.192A16.5,16.5 0,0 1,16.5 1.692z"
+      android:fillColor="@color/monument_buttonback_shadow"/>
+  <path
+      android:pathData="M16.5,0L175.5,0A16.5,16.5 0,0 1,192 16.5L192,16.5A16.5,16.5 0,0 1,175.5 33L16.5,33A16.5,16.5 0,0 1,0 16.5L0,16.5A16.5,16.5 0,0 1,16.5 0z">
+    <aapt:attr name="android:fillColor">
+      <gradient 
+          android:startY="8.34872"
+          android:startX="96.0391"
+          android:endY="32.9999"
+          android:endX="95.9591"
+          android:type="linear">
+        <item android:offset="0" android:color="@color/monument_buttonback_startcolor"/>
+        <item android:offset="1" android:color="@color/monument_buttonback_endcolor"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+</vector>
