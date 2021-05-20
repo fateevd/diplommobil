@@ -55,73 +55,10 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/settings_password_contain"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:elevation="10dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/settings_user_info">
-
-            <EditText
-                android:id="@+id/settings_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/button_round_corner"
-                android:inputType="textPassword"
-                android:maxLength="15"
-                android:maxLines="1"
-                android:padding="20dp"
-                android:password="true"
-                android:textColor="@color/setting_change_pass_textcolor"
-                android:textSize="20sp"
-                tools:ignore="Deprecated" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:background="@color/settings_backcolor"
-                android:gravity="center"
-                android:paddingLeft="10dp"
-                android:layout_marginTop="-4dp"
-                android:paddingRight="10dp"
-                android:textSize="18sp"
-                android:text="Смена пароля"
-                android:textColor="@color/setting_change_pass_textcolor"/>
-
-            <ImageButton
-                android:id="@+id/settings_password_change_okey"
-                android:layout_width="wrap_content"
-                android:background="@android:color/transparent"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/settings_password_change_see"
-                android:layout_marginRight="10dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/pass_change"
-                android:text="Button" />
-
-            <ImageButton
-                android:id="@+id/settings_password_change_see"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:background="@android:color/transparent"
-                android:layout_marginRight="35dp"
-                android:src="@drawable/see_pass"
-                android:layout_alignParentRight="true"
-                android:text="Button" />
-
-    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/settings_push_notif"
-        android:layout_below="@id/settings_password_contain"
+        android:layout_below="@id/settings_user_info"
         android:layout_width="match_parent"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"

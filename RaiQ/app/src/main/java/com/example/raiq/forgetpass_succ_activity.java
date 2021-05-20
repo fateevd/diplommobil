@@ -17,7 +17,7 @@ public class forgetpass_succ_activity extends AppCompatActivity {
         gotoAuth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(forgetpass_succ_activity.this,Authoriz.class));
+                startActivity(new Intent(forgetpass_succ_activity.this,Authoriz.class).addFlags(new Intent().FLAG_ACTIVITY_CLEAR_TASK | new Intent().FLAG_ACTIVITY_NEW_TASK));
                 finish();
             }
         });

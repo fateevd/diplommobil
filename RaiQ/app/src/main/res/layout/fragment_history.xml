@@ -28,16 +28,12 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/history_spis"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/fragment_history_hop"
-            android:layout_marginHorizontal="13dp"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="23px"
-            android:scrollbars="vertical"
-            tools:listitem="@layout/history_item" />
+            android:layout_marginHorizontal="13dp"/>
 
 
     </RelativeLayout>

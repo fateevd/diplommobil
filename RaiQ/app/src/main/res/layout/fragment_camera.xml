@@ -16,12 +16,12 @@
         app:flashButtonColor="@android:color/white"
         app:flashButtonVisible="true"
         app:frameColor="@android:color/white"
-        app:frameCornersSize="50dp"
-        app:frameCornersRadius="30dp"
+        app:frameCornersSize="30dp"
+        app:frameCornersRadius="10dp"
         app:frameAspectRatioWidth="1"
         app:frameAspectRatioHeight="1"
-        app:frameSize="0.80"
-        app:frameThickness="5dp"
+        app:frameSize="0.85"
+        app:frameThickness="10dp"
         app:maskColor="#77000000"
         tools:ignore="MissingClass" />
 

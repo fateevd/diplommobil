@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "1054883595943",
-    "firebase_url": "https://washeroff-76c4b.firebaseio.com",
-    "project_id": "washeroff-76c4b",
-    "storage_bucket": "washeroff-76c4b.appspot.com"
+    "project_number": "14604468026",
+    "firebase_url": "https://qr-generation-324f0-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "qr-generation-324f0",
+    "storage_bucket": "qr-generation-324f0.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1054883595943:android:9d152f481431a7fd37bd82",
+        "mobilesdk_app_id": "1:14604468026:android:09815ce91a63c98cd19a03",
         "android_client_info": {
           "package_name": "com.example.raiq"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1054883595943-q03v30qc6d0rrchh7isb057caa1ulgt9.apps.googleusercontent.com",
+          "client_id": "14604468026-adpamv0ingm8h3aru0gdpclaf6u1lhpd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.raiq",
+            "certificate_hash": "090a61a633a44f6216cccae85cdf89081b9a59c4"
+          }
+        },
+        {
+          "client_id": "14604468026-qur8aath8mcg6ghpsinnbs6gmug12h6i.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCqVntQgGd30zwAbSG-peeXeZseDwpqHWU"
+          "current_key": "AIzaSyBPR_YJG8bq-cnvLl6k8RdvEPRaDTj9BJM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1054883595943-q03v30qc6d0rrchh7isb057caa1ulgt9.apps.googleusercontent.com",
+              "client_id": "14604468026-qur8aath8mcg6ghpsinnbs6gmug12h6i.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

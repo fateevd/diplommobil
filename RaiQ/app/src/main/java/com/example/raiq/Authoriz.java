@@ -39,7 +39,6 @@ public class Authoriz extends AppCompatActivity {
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         if(firebaseUser != null)
         {
-            Nav.email = firebaseUser.getEmail();
             Intent intent = new Intent(Authoriz.this,MainActivity.class);
             startActivity(intent);
             finish();
@@ -99,9 +98,8 @@ public class Authoriz extends AppCompatActivity {
         gotoforgetpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(Authoriz.this, forgetpass_activity.class));
-                //finish();
-                ShowMess("Упс","Пока недоступно");
+                startActivity(new Intent(Authoriz.this, forgetpass_activity.class));
+                finish();
             }
         });
         emailEdit=findViewById(R.id.auth_mail);
@@ -116,10 +114,6 @@ public class Authoriz extends AppCompatActivity {
                     if (getApplicationContext().checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
                     {
                         signIn(email.getText().toString(), password.getText().toString());
-//                        Intent intent = new Intent(Authoriz.this,MainActivity.class);
-//                        intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
-//                        startActivity(intent);
-//                        finish();
                     }
                     else
                     {
@@ -128,10 +122,6 @@ public class Authoriz extends AppCompatActivity {
                 }
                 else {
                     signIn(email.getText().toString(), password.getText().toString());
-//                    Intent intent = new Intent(Authoriz.this, MainActivity.class);
-//                    intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
-//                    startActivity(intent);
-//                    finish();
                 }
             }
         });

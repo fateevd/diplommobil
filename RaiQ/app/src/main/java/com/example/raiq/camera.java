@@ -1,29 +1,32 @@
 package com.example.raiq;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.ContentView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
+import android.webkit.URLUtil;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.zxing.Result;
-
-import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,11 +76,21 @@ public class camera extends Fragment  {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
+    View view;
+    Context mContext;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mContext = activity;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View view = inflater.inflate(R.layout.fragment_camera, container, false);
+        view = inflater.inflate(R.layout.fragment_camera, container, false);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
         {
             if (getContext().checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
@@ -94,10 +107,12 @@ public class camera extends Fragment  {
                     @RequiresApi(api = Build.VERSION_CODES.O)
                     @Override
                     public void run() {
-                        String code = result.getText();
-                        Nav.url=code;
-                        Intent intent = new Intent(getContext(), Payment_activity.class);
-                        startActivity(intent);
+                        if(URLUtil.isValidUrl(result.getText()) && Patterns.WEB_URL.matcher(result.getText()).matches()){
+                            startActivity(new Intent(getContext(), WebviewActivity.class).putExtra("URL",result.getText()).putExtra("History","Yes"));
+                        }
+                        else{
+                            ShowMenu(result.getText());
+                        }
                     }
                 });
             }
@@ -110,6 +125,25 @@ public class camera extends Fragment  {
         });
 
         return view;
+    }
+
+    public void ShowMenu(String scan_result)
+    {
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
+                getActivity(), R.style.BottomSheetDialogTheme
+        );
+        View bottomView = LayoutInflater.from(getActivity())
+                .inflate(R.layout.bottomsheetlayout,(LinearLayout) view.findViewById(R.id.result_container));
+        TextView resulcode = bottomView.findViewById(R.id.result_code);
+        resulcode.setText(scan_result);
+        bottomSheetDialog.setContentView(bottomView);
+        bottomSheetDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                mCodeScanner.startPreview();
+            }
+        });
+        bottomSheetDialog.show();
     }
 
     @Override

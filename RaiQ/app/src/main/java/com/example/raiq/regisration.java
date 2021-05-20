@@ -22,6 +22,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+
 public class regisration extends AppCompatActivity {
 
     Button createacc;
@@ -38,14 +40,13 @@ public class regisration extends AppCompatActivity {
         backtoauth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(regisration.this,Authoriz.class).addFlags(Intent.FLAG_RECEIVER_NO_ABORT));
+                startActivity(new Intent(regisration.this,Authoriz.class).addFlags(new Intent().FLAG_ACTIVITY_CLEAR_TASK | new Intent().FLAG_ACTIVITY_NEW_TASK));
                 finish();
             }
         });
 
         fam = findViewById(R.id.regist_fam);
         im = findViewById(R.id.regist_im);
-        otch = findViewById(R.id.regist_otch);
         poch = (EditText) findViewById(R.id.regist_poch);
         parol = (EditText) findViewById(R.id.regist_parol);
 
@@ -53,45 +54,46 @@ public class regisration extends AppCompatActivity {
 
     }
     public FirebaseAuth mAuth;
-    public void reg(String poch, String parol) {
+    String id;
+    public String reg(String poch, String parol) {
         mAuth.createUserWithEmailAndPassword(poch, parol)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
+                            id = user.getUid();
                             /*Toast.makeText(Registration.this, "Учётная запись создана успешно.",
                                     Toast.LENGTH_SHORT).show();*/
                             /*Intent intent = new Intent(Registration.this, Authorization.class);
                             startActivity(intent);*/
                         } else {
+                            id = "";
                             //ShowMess("Слабый пароль","Введите от 1 до 6 символов");
                         }
                     }
                 });
+        return id;
     }
     public void createAcc(View view) {
         try {
-            reg(poch.getText().toString(), parol.getText().toString());
-            String text1 = poch.getText().toString();
-            String text2 = text1.replaceAll("[^A-Za-zА-Яа-я0-9]", "");
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference("userinfo/"+text2);
-            //myRef.setValue(text2);
-            myRef = database.getReference("userinfo/" + text2 + "/Account");
-            myRef.setValue("0");
-            myRef = database.getReference("userinfo/" + text2 + "/Email");
-            myRef.setValue(poch.getText().toString());
-            myRef = database.getReference("userinfo/" + text2 + "/FirstName");
-            myRef.setValue(im.getText().toString());
-            myRef = database.getReference("userinfo/" + text2 + "/LastName");
-            myRef.setValue(fam.getText().toString());
-            myRef = database.getReference("userinfo/" + text2 + "/MiddleName");
-            myRef.setValue(otch.getText().toString());
-            myRef = database.getReference("userinfo/" + text2 + "/Password");
-            myRef.setValue(parol.getText().toString());
-            Intent intent = new Intent(regisration.this, Authoriz.class);
-            startActivity(intent);
+            String id = reg(poch.getText().toString(), parol.getText().toString());
+            if(!id.equals("")){
+                DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("user/"+id);
+                HashMap<String, Object> hashMap = new HashMap<>();
+                hashMap.put("Email",poch.getText().toString());
+                hashMap.put("Famyli",fam.getText().toString());
+                hashMap.put("Name",im.getText().toString());
+                myRef.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            startActivity(new Intent(regisration.this, Authoriz.class).addFlags(new Intent().FLAG_ACTIVITY_CLEAR_TASK | new Intent().FLAG_ACTIVITY_NEW_TASK));
+                            finish();
+                        }
+                    }
+                });
+            }
         }
         catch (Exception ex){
             Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();

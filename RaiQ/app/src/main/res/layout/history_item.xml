@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/history_item"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <LinearLayout
@@ -23,10 +26,10 @@
             tools:ignore="MissingConstraints">
 
                 <TextView
-                    android:id="@+id/history_item_monument_name"
+                    android:id="@+id/history_item_scan_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Название памятника"
+                    android:text=""
                     android:textSize="18sp"
                     android:padding="0dp"
                     android:layout_marginTop="5dp"
@@ -34,16 +37,27 @@
                     android:textColor="@color/history_item_textcolor_name"/>
 
                 <TextView
-                    android:id="@+id/history_item_monument_address"
+                    android:id="@+id/history_item_scan_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Адрес"
+                    android:text=""
                     android:layout_marginTop="11dp"
-                    android:layout_marginBottom="17dp"
                     android:layout_centerHorizontal="true"
                     android:textColor="@color/history_item_textcolor_address"
                     android:textSize="15sp"
-                    android:layout_below="@id/history_item_monument_name"/>
+                    android:layout_below="@id/history_item_scan_name"/>
+
+            <TextView
+                android:id="@+id/history_item_scan_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginTop="11dp"
+                android:layout_marginBottom="17dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/history_item_textcolor_name"
+                android:textSize="11sp"
+                android:layout_below="@id/history_item_scan_address"/>
 
             </RelativeLayout>
 

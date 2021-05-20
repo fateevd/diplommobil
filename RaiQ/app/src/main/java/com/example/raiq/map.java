@@ -25,6 +25,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.raiq.model.qrCode;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -92,19 +93,18 @@ public class map extends Fragment implements OnMapReadyCallback {
     }
 
     private GoogleMap mMap;
+    private String apiKeyYandex = "360a312d-b29d-4a29-b028-fa3f6d1a7d93";
+    private boolean open = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_map, container, false);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-        {
-            if (getContext().checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-            {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (getContext().checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1);
             }
-            if (getContext().checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-            {
+            if (getContext().checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},1);
             }
         }
@@ -125,26 +125,21 @@ public class map extends Fragment implements OnMapReadyCallback {
                         return;
                     }
                     mMap.setMyLocationEnabled(true);
-
-                    LocationManager mng = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-                    Location location = mng.getLastKnownLocation(mng.getBestProvider(new Criteria(), false));
-
-                    double lat = location.getLatitude();
-                    double lon = location.getLongitude();
-
-                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lon), 17);
-                    mMap.animateCamera(cameraUpdate);
-
-
-                }
-                catch (Exception ex)
-                {
+                    mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
+                        @Override
+                        public void onMyLocationChange(Location location) {
+                            if(!open){
+                                double lat = location.getLatitude();
+                                double lon = location.getLongitude();
+                                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lon), 17);
+                                mMap.animateCamera(cameraUpdate);
+                                open = true;
+                            }
+                        }
+                    });
+                } catch (Exception ex) {
                     Toast.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
                 }
-
-                /*mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(0, 0))
-                        .title("Hello world"));*/
             }
         });
         count();
@@ -153,7 +148,6 @@ public class map extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
     }
 
     @Override
@@ -166,66 +160,41 @@ public class map extends Fragment implements OnMapReadyCallback {
     DatabaseReference myRef;
     public void count(){
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("qrCodes");
+        myRef = database.getReference("qr");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String count=String.valueOf(dataSnapshot.getChildrenCount());
-                start(count);
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    qrCode code = snapshot.getValue(qrCode.class);
+                    putMark(code.getAddress(),code.getName());
+                }
             }
             @Override
             public void onCancelled(DatabaseError error) { }});
     }
-    public  void start(final String count){
-        for(int i=0;i<=Integer.valueOf(count);i++){
-            String url = "https://washeroff-76c4b.firebaseio.com/qrCodes.json";
-            JsonObjectRequest jo = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    try {
-                        for(int i=0;i<=Integer.valueOf(count);i++){
-                            JSONObject main = response.getJSONObject(response.names().get(i).toString());
-                            final String address=main.getString("address");
-                            String url = "https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&lang=ru&key=AIzaSyCeKL3ggSs59d9uDrgMTqN3mrtzoOjnGiQ";
-                            JsonObjectRequest jo = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-                                @Override
-                                public void onResponse(JSONObject response) {
-                                    try {
-                                        JSONArray results = response.getJSONArray("results");
-                                        JSONObject index = results.getJSONObject(0);
-                                        JSONObject geometry  = index.getJSONObject("geometry");
-                                        JSONObject location = geometry.getJSONObject("location");
-                                        mMap.addMarker(new MarkerOptions()
-                                                .position(new LatLng(location.getDouble("lat"), location.getDouble("lng")))
-                                                .title(address.toUpperCase()));
-                                    } catch (JSONException e) { } }}, new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) { }});
-                            RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-                            requestQueue.add(jo);
-                        }
-                    } catch (JSONException e) { } }}, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) { }});
-            RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-            requestQueue.add(jo);
-        }
-        /*String url = "https://maps.googleapis.com/maps/api/geocode/json?address=Омск Добролюбова 15&lang=ru&key=AIzaSyCeKL3ggSs59d9uDrgMTqN3mrtzoOjnGiQ";
+
+    public void putMark(final String address, final String name){
+        String url = "https://geocode-maps.yandex.ru/1.x/?format=json&apikey="+apiKeyYandex+"&geocode="+address+"&results=1";
         JsonObjectRequest jo = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    JSONArray results = response.getJSONArray("results");
-                    JSONObject index = results.getJSONObject(0);
-                    JSONObject geometry  = index.getJSONObject("geometry");
-                    JSONObject location = geometry.getJSONObject("location");
+                    JSONObject responseJSONObject = response.getJSONObject("response");
+                    JSONObject GeoObjectCollection = responseJSONObject.getJSONObject("GeoObjectCollection");
+                    JSONArray featureMember = GeoObjectCollection.getJSONArray("featureMember");
+                    JSONObject arrayOne = featureMember.getJSONObject(0);
+                    JSONObject GeoObject = arrayOne.getJSONObject("GeoObject");
+                    JSONObject Point = GeoObject.getJSONObject("Point");
+                    String point = Point.getString("pos");
+                    double lng = Double.parseDouble(point.substring(0,point.indexOf(" ")));
+                    double lat = Double.parseDouble(point.substring(point.indexOf(" ")+1));
                     mMap.addMarker(new MarkerOptions()
-                            .position(new LatLng(location.getDouble("lat"), location.getDouble("lng")))
-                            .title(""));
-                } catch (JSONException e) { Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG).show();} }}, new Response.ErrorListener() {
+                            .position(new LatLng(lat,lng))
+                            .title(name));
+                } catch (JSONException e) { } }}, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) { }});
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        requestQueue.add(jo);*/
+        requestQueue.add(jo);
     }
-}
+    }

@@ -170,6 +170,10 @@
     <!--Фон-->
     <color name="camera_background">#fff</color>
 
+    <!--Выезжаещее меню-->
+
+    <color name="bottomsheet_backgroud">#F8F8F8</color>
+    <color name="bottomsheet_text">#000</color>
 
     <!--Главный фрагмент-->
 

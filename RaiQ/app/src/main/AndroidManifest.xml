@@ -21,7 +21,7 @@
         <activity android:name=".forgetpass_succ_activity" />
         <activity android:name=".forgetpass_activity" />
         <activity
-            android:name=".Payment_activity"
+            android:name=".WebviewActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Loading_activity"
